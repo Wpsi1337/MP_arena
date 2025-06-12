@@ -52,4 +52,4 @@ local_settings.json
 *.csproj
 *.sln
 .mono/
-obj/
+obj/export_presets.cfg
