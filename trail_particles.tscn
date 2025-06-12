@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx70hvpvg4jbl"]
+
+[ext_resource type="Material" uid="uid://bxu6ryttti7kn" path="res://materials/missile_trail.tres" id="1_i7dcr"]
+
+[node name="TrailParticles" type="GPUParticles2D"]
+rotation = 3.14159
+amount = 1024
+lifetime = 4.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 3.0
+trail_sections = 16
+trail_section_subdivisions = 8
+process_material = ExtResource("1_i7dcr")

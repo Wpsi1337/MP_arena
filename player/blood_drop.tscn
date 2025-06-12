@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp5sy8uxcowvg"]
+
+[ext_resource type="Script" uid="uid://7is1ohr5visj" path="res://player/blood_drop.gd" id="1_6vovh"]
+[ext_resource type="Texture2D" uid="uid://by2qvlirfs6xr" path="res://player/player.png" id="1_joor5"]
+[ext_resource type="Shader" uid="uid://lja118qkk1m7" path="res://player/blood_drop.tres" id="3_6vovh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjt7f"]
+shader = ExtResource("3_6vovh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hcng"]
+size = Vector2(1, 1)
+
+[node name="blood_drop" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 7
+mass = 0.2
+script = ExtResource("1_6vovh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+texture = ExtResource("1_joor5")
+region_enabled = true
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_cjt7f")
+shape = SubResource("RectangleShape2D_8hcng")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true

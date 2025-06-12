@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtah3rv37nnxo"]
+
+[ext_resource type="Script" uid="uid://yekbcpjl4qme" path="res://player/flame_bullet.gd" id="1_bak8v"]
+[ext_resource type="Texture2D" uid="uid://bayom2fwkis7i" path="res://Flamer.png" id="2_bak8v"]
+[ext_resource type="Shader" uid="uid://lja118qkk1m7" path="res://player/blood_drop.tres" id="3_fffk0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjt7f"]
+shader = ExtResource("3_fffk0")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bak8v"]
+
+[node name="flame_bullet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 11
+mass = 0.1
+gravity_scale = 0.5
+script = ExtResource("1_bak8v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.764701
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_bak8v")
+region_rect = Rect2(0, 0, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+material = SubResource("ShaderMaterial_cjt7f")
+rotation = 0.793949
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CapsuleShape2D_bak8v")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true

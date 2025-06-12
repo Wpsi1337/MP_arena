@@ -1,0 +1,55 @@
+# Godot-specific
+*.import
+*.import/*
+export_presets.cfg
+*.translation
+*.gen.*
+*.tmp
+*.bak
+*.log
+
+# Godot exported build files
+*.exe
+*.pck
+*.apk
+*.aab
+*.zip
+export/
+
+# User-specific and temporary files
+.project
+.godot/
+*.autosave.tscn
+*.autosave.tres
+*.cache
+
+# macOS-specific
+.DS_Store
+
+# Windows-specific
+Thumbs.db
+desktop.ini
+
+# Editor-specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Common build and dependency folders
+/bin/
+/build/
+/dist/
+/exported/
+
+# Sensitive or local configuration
+*.cfg
+local_settings.json
+*.secret
+*.key
+
+# Godot Mono-specific (if using C#)
+*.csproj
+*.sln
+.mono/
+obj/

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://nt4cnyqnewgi"]
+
+[ext_resource type="Texture2D" uid="uid://cyor7j4o0i1he" path="res://player/rocket_launcher-export.png" id="1_0s3iw"]
+[ext_resource type="AudioStream" uid="uid://gaupxfgbxru5" path="res://player/rocket_launcher.mp3" id="2_wfct8"]
+
+[sub_resource type="Shader" id="Shader_ex4cd"]
+code = "uniform float time;
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    vec4 base = tex * COLOR;
+
+    float pulse = 0.5 + 0.5 * sin(time * 10.0);
+    base.rgb += base.rgb * tex.a * glow_strength * pulse;
+
+    COLOR = base;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2oaxn"]
+render_priority = 0
+shader = SubResource("Shader_ex4cd")
+
+[sub_resource type="Curve" id="Curve_0s3iw"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="RocketLauncherContainer" type="Node2D"]
+
+[node name="RocketLauncherSprite" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_0s3iw")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(13, 0)
+
+[node name="MuzzleFlash" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 0.0352941, 1)
+material = SubResource("ShaderMaterial_2oaxn")
+position = Vector2(13, 0)
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+speed_scale = 2.45
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_min = 1.0
+angular_velocity_max = 3.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+linear_accel_curve = SubResource("Curve_0s3iw")
+color = Color(0.627451, 0.678431, 0, 1)
+hue_variation_max = 1.0
+
+[node name="rocket_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wfct8")
+volume_db = -3.0
+pitch_scale = 0.9
+
+[node name="Node" type="Node" parent="."]

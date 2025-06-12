@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvaj3sc55tow6"]
+
+[ext_resource type="Shader" uid="uid://dfpxvcs7ngsow" path="res://shader/scanline.gdshader" id="1_q3ifs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnoap"]
+shader = ExtResource("1_q3ifs")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 0.5
+shader_parameter/warp_amount = 0.05
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.05
+shader_parameter/brightness_boost = 1.2
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_wnoap")
+offset_right = 40.0
+offset_bottom = 40.0

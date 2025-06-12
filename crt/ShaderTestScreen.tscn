@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx3xeuiw6n8gw"]
+
+[ext_resource type="Texture2D" uid="uid://b7rrbl58e5lm6" path="res://addons/crt_shader/CRTFrame.png" id="3"]
+[ext_resource type="Script" uid="uid://bruevlxip7ig3" path="res://addons/crt_shader/crt_screen.gd" id="5_ks51q"]
+[ext_resource type="Material" uid="uid://cxr7ihe8nn4hv" path="res://addons/crt_shader/ShaderScreen.material" id="6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jy6v4"]
+load_path = "res://.godot/imported/sample.png-14423ed1ac8943a979dc6df4d0269644.ctex"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-101, -61)
+scale = Vector2(1.17, 1.17)
+texture = SubResource("CompressedTexture2D_jy6v4")
+centered = false
+offset = Vector2(69.065, 18.37)
+
+[node name="CRTScreen" type="ColorRect" parent="."]
+material = ExtResource("6")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_ks51q")
+
+[node name="CRTFrame" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 58.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.951289, 0.751845)
+texture = ExtResource("3")

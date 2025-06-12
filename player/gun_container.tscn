@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7i0m6jorvx7t"]
+
+[ext_resource type="Texture2D" uid="uid://cr56d3m1y8u6u" path="res://player/smg.png" id="1_ex4cd"]
+[ext_resource type="AudioStream" uid="uid://bbicwywc6hdxp" path="res://player/pistol_shot.mp3" id="2_1iybv"]
+
+[sub_resource type="Shader" id="Shader_1iybv"]
+code = "uniform float time;
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    vec4 base = tex * COLOR;
+
+    float pulse = 0.5 + 0.5 * sin(time * 10.0);
+    base.rgb += base.rgb * tex.a * glow_strength * pulse;
+
+    COLOR = base;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+render_priority = 0
+shader = SubResource("Shader_1iybv")
+
+[sub_resource type="Curve" id="Curve_g1dw6"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="GunContainer" type="Node2D"]
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("1_ex4cd")
+
+[node name="Muzzle" type="Marker2D" parent="GunSprite"]
+
+[node name="MuzzleFlash" type="CPUParticles2D" parent="GunSprite"]
+modulate = Color(1, 1, 0.0352941, 1)
+material = SubResource("ShaderMaterial_g1dw6")
+position = Vector2(3, 0)
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+speed_scale = 2.45
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_min = 1.0
+angular_velocity_max = 3.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+linear_accel_curve = SubResource("Curve_g1dw6")
+color = Color(0.627451, 0.678431, 0, 1)
+hue_variation_max = 1.0
+
+[node name="gun_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1iybv")
+volume_db = -30.588
+pitch_scale = 2.71
+max_polyphony = 8

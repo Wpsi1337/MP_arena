@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8lii8nkmlgu7"]
+
+[ext_resource type="Texture2D" uid="uid://doqoe7s0yachg" path="res://player/flamethtrower.png" id="1_8wpss"]
+[ext_resource type="AudioStream" uid="uid://davwepe7swl4u" path="res://player/flamethrower_sound.mp3" id="2_yk5e5"]
+[ext_resource type="AudioStream" uid="uid://ds71umylfqunb" path="res://player/crackle_sound.mp3" id="3_3baye"]
+
+[sub_resource type="Shader" id="Shader_ex4cd"]
+code = "uniform float time;
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+    vec4 base = tex * COLOR;
+
+    float pulse = 0.5 + 0.5 * sin(time * 10.0);
+    base.rgb += base.rgb * tex.a * glow_strength * pulse;
+
+    COLOR = base;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
+render_priority = 0
+shader = SubResource("Shader_ex4cd")
+
+[sub_resource type="Curve" id="Curve_g1dw6"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="FlameThrowerContainer" type="Node2D"]
+
+[node name="FlameThrowerSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 0.0627451, 1, 1)
+position = Vector2(10, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8wpss")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(19, 0)
+scale = Vector2(2, 2)
+
+[node name="MuzzleFlash" type="CPUParticles2D" parent="."]
+modulate = Color(1, 1, 0.0352941, 1)
+material = SubResource("ShaderMaterial_g1dw6")
+position = Vector2(22, 0)
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+speed_scale = 2.45
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+angular_velocity_min = 1.0
+angular_velocity_max = 3.0
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+linear_accel_curve = SubResource("Curve_g1dw6")
+color = Color(0.627451, 0.678431, 0, 1)
+hue_variation_max = 1.0
+
+[node name="flamethrower_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_yk5e5")
+volume_db = -19.487
+max_polyphony = 4
+parameters/looping = true
+
+[node name="crackle_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3baye")
+volume_db = -22.983
+parameters/looping = true

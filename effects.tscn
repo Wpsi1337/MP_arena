@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjg714th6vmgu"]
+
+[ext_resource type="Material" uid="uid://bxu6ryttti7kn" path="res://materials/missile_trail.tres" id="1_oaf0w"]
+
+[node name="Effects" type="Node"]
+
+[node name="TrailParticles" type="GPUParticles2D" parent="."]
+position = Vector2(2.6866, 0)
+rotation = 3.14159
+amount = 1024
+lifetime = 4.0
+fixed_fps = 60
+trail_enabled = true
+trail_lifetime = 3.0
+trail_sections = 16
+trail_section_subdivisions = 8
+process_material = ExtResource("1_oaf0w")

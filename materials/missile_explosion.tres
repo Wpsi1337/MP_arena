@@ -1,0 +1,58 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=9 format=3 uid="uid://yruwdi1ugbw0"]
+
+[sub_resource type="Curve" id="Curve_vicvy"]
+_data = [Vector2(0.0394737, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.539326), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gkfk2"]
+curve = SubResource("Curve_vicvy")
+
+[sub_resource type="Gradient" id="Gradient_680uv"]
+offsets = PackedFloat32Array(0, 0.144708, 0.332613, 0.563715, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.941176, 0.0470588, 0, 1, 0.905715, 0.808846, 0, 1, 0.952941, 0.901961, 0.486275, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vicvy"]
+gradient = SubResource("Gradient_680uv")
+
+[sub_resource type="Curve" id="Curve_gkfk2"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(0.997955, -1.88208), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qyq6m"]
+curve = SubResource("Curve_gkfk2")
+
+[sub_resource type="Curve" id="Curve_680uv"]
+_limits = [0.0, 1.0, 0.0, 3.0]
+_data = [Vector2(0, 0.338055), 0.0, 0.0, 0, 0, Vector2(1.28049, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vicvy"]
+curve = SubResource("Curve_680uv")
+
+[resource]
+emission_shape = 2
+emission_sphere_radius = 0.3
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 2.0
+orbit_velocity_curve = SubResource("CurveTexture_qyq6m")
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -20.0
+linear_accel_max = 20.0
+radial_accel_min = -10.0
+radial_accel_max = 20.0
+scale_min = 0.1
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_vicvy")
+color = Color(1, 1, 0.666667, 1)
+color_ramp = SubResource("GradientTexture1D_vicvy")
+alpha_curve = SubResource("CurveTexture_gkfk2")
+turbulence_enabled = true
+turbulence_noise_strength = 3.89
+turbulence_noise_scale = 1.99
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.19

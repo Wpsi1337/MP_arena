@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd86bhhfsv7ik"]
+
+[ext_resource type="Shader" uid="uid://cr16umqdcrnjf" path="res://shader/smoke_fog.gdshader" id="1_ba0tn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vm23o"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lg01o"]
+seed = 3
+frequency = 0.001
+offset = Vector3(-153.85, -37.74, 0)
+fractal_octaves = 8
+fractal_gain = 0.8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bg1o7"]
+width = 1152
+height = 648
+seamless = true
+seamless_blend_skirt = 0.839
+noise = SubResource("FastNoiseLite_lg01o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emx5u"]
+shader = ExtResource("1_ba0tn")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bg1o7")
+shader_parameter/speed = Vector2(0, 0.02)
+shader_parameter/wave_strength = 0.1
+shader_parameter/distortion = 0.09
+
+[node name="smoke_fog" type="Node2D"]
+material = SubResource("ShaderMaterial_vm23o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_emx5u")
+custom_minimum_size = Vector2(100, 100)
+offset_right = 585.0
+offset_bottom = 322.0
+color = Color(0, 0.27816, 0.452811, 1)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://0h00httnyisi"]
+
+[ext_resource type="Material" uid="uid://yruwdi1ugbw0" path="res://materials/missile_explosion.tres" id="1_i4d7o"]
+[ext_resource type="Script" uid="uid://chlq47kuxkb5r" path="res://player/missile_explosion.gd" id="1_xcc8w"]
+[ext_resource type="AudioStream" uid="uid://bfhs0lujokoht" path="res://player/explosion-fx-343683.mp3" id="3_52lpq"]
+
+[node name="Missile_Explosion" type="Node2D"]
+script = ExtResource("1_xcc8w")
+
+[node name="ExplosionParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1024
+lifetime = 1.5
+one_shot = true
+speed_scale = 7.0
+explosiveness = 0.8
+randomness = 0.3
+fixed_fps = 60
+trail_enabled = true
+process_material = ExtResource("1_i4d7o")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(11.3134, 0)
+stream = ExtResource("3_52lpq")
+volume_db = -23.302

@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d144va1rk8u0r"]
+
+[ext_resource type="FontFile" uid="uid://cvhpslpxqvr43" path="res://SuperPixel-m2L8j.ttf" id="1_e0wod"]
+
+[resource]
+default_base_scale = 1.64
+default_font = ExtResource("1_e0wod")
+default_font_size = 38
