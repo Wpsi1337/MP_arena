@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://c5agow2cecj8v"]
+[gd_scene load_steps=73 format=4 uid="uid://c5agow2cecj8v"]
 
 [ext_resource type="Texture2D" uid="uid://b78xw2o4ms3uk" path="res://tileset.png" id="1_0mmdn"]
 [ext_resource type="Script" uid="uid://20n8fgi8rwes" path="res://game.gd" id="1_qdjc2"]
@@ -18,6 +18,7 @@
 [ext_resource type="Shader" uid="uid://bvd5njpkcbw5u" path="res://foilage.gdshader" id="13_215e1"]
 [ext_resource type="Texture2D" uid="uid://ca2ea7a3b5fs5" path="res://foilage.png" id="13_lc2xo"]
 [ext_resource type="Texture2D" uid="uid://s1pxsdoofu5n" path="res://shader/sway.tres" id="14_7sc4i"]
+[ext_resource type="StyleBox" uid="uid://bhtxd5e7dm8ol" path="res://style_box_quit_button.tres" id="16_hb5m1"]
 [ext_resource type="Script" uid="uid://c415u5yyks4jt" path="res://moving_platform.gd" id="19_boyg6"]
 [ext_resource type="Script" uid="uid://dndf0ffwr0aox" path="res://moving_platform_horizontal.gd" id="20_e36ub"]
 
@@ -159,6 +160,160 @@ shadow_offset = Vector2(2.95, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7jktm"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhcbd"]
+bg_color = Color(0.98275, 6.28106e-06, 5.77569e-07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1jbl"]
+bg_color = Color(1, 0.7659, 0.727378, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vaj68"]
+bg_color = Color(0.65098, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.717647)
+border_blend = true
+expand_margin_top = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2p71"]
+bg_color = Color(0.98275, 6.28106e-06, 5.77569e-07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa8c5"]
+bg_color = Color(1, 0.7659, 0.727378, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5b14r"]
+bg_color = Color(0.65098, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.717647)
+border_blend = true
+expand_margin_top = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhpj7"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+expand_margin_left = 4.0
+expand_margin_top = 5.0
+expand_margin_right = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bnpwn"]
+bg_color = Color(0.98275, 6.28106e-06, 5.77569e-07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_36jdj"]
+bg_color = Color(1, 0.7659, 0.727378, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.588235)
+border_blend = true
+expand_margin_left = 4.0
+expand_margin_top = 10.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfvwf"]
+bg_color = Color(0.65098, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.376471, 0.8, 0.717647)
+border_blend = true
+expand_margin_top = 6.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5p1p"]
+bg_color = Color(1, 0.563709, 0.500924, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.91218, 0.000808909, 0.000439819, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 17.0
+expand_margin_top = 19.0
+expand_margin_right = 13.0
+expand_margin_bottom = 13.0
+shadow_color = Color(0, 0, 0, 0.705882)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hb5m1"]
+bg_color = Color(0.665604, 8.0619e-07, 4.33177e-07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.982636, 0.00110965, 0.000608758, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 19.0
+expand_margin_top = 21.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+shadow_color = Color(0, 0, 0, 0.705882)
+shadow_size = 20
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_80cx4"]
 shader = ExtResource("13_215e1")
 shader_parameter/noise_texture = ExtResource("14_7sc4i")
@@ -243,12 +398,6 @@ gradient = SubResource("Gradient_boyg6")
 width = 634
 fill_from = Vector2(0, 0.893162)
 fill_to = Vector2(0, 0)
-
-[sub_resource type="Curve2D" id="Curve2D_e36ub"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 1
 
 [node name="Game" type="Node"]
 script = ExtResource("1_qdjc2")
@@ -453,48 +602,57 @@ offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReferenceRect3" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
-layout_mode = 2
-border_color = Color(1, 0.387955, 0.319725, 1)
-border_width = 4.0
-editor_only = false
-
 [node name="Host" type="Button" parent="UI/Multiplayer/MainMenu"]
 material = SubResource("ShaderMaterial_7jktm")
 layout_mode = 2
 tooltip_text = "Host your game over LAN"
 theme = ExtResource("3_feb5d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qhcbd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f1jbl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vaj68")
 text = "HOST GAME"
 
-[node name="ReferenceRect4" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+[node name="ReferenceRect" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
 layout_mode = 2
-border_color = Color(1, 0.387955, 0.319725, 1)
-border_width = 4.0
-editor_only = false
+border_color = Color(1, 1, 1, 0)
+border_width = 0.0
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
 
 [node name="Join" type="Button" parent="UI/Multiplayer/MainMenu"]
 layout_mode = 2
 tooltip_text = "Join a LAN-game"
 theme = ExtResource("3_feb5d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i2p71")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xa8c5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5b14r")
 text = "JOIN GAME"
 
-[node name="ReferenceRect" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+[node name="ReferenceRect2" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
 layout_mode = 2
-border_color = Color(1, 0.387955, 0.319725, 1)
-border_width = 4.0
-editor_only = false
+border_color = Color(1, 1, 1, 0)
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
 
 [node name="IPInput" type="LineEdit" parent="UI/Multiplayer/MainMenu"]
 layout_mode = 2
 theme = ExtResource("3_feb5d")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dhpj7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_dhpj7")
 placeholder_text = "*ENTER IP HERE*"
 alignment = 1
 
-[node name="ReferenceRect2" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+[node name="ReferenceRect7" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
 layout_mode = 2
-border_color = Color(1, 0.387955, 0.319725, 1)
-border_width = 4.0
-editor_only = false
+border_color = Color(1, 1, 1, 0)
+
+[node name="ReferenceRect8" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
 
 [node name="StatusLabel" type="Label" parent="UI/Multiplayer/MainMenu"]
 modulate = Color(0.703808, 0.703808, 0.703808, 1)
@@ -504,6 +662,23 @@ mouse_filter = 0
 theme = ExtResource("3_feb5d")
 horizontal_alignment = 1
 uppercase = true
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+border_color = Color(1, 1, 1, 0)
+
+[node name="Exit Game" type="Button" parent="UI/Multiplayer/MainMenu"]
+layout_mode = 2
+tooltip_text = "Join a LAN-game"
+theme = ExtResource("3_feb5d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bnpwn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_36jdj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xfvwf")
+text = "EXIT GAME"
 
 [node name="GameUI" type="CanvasLayer" parent="UI"]
 layer = 2
@@ -576,9 +751,37 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="CRT" parent="UI/GameUI" instance=ExtResource("6_hve3p")]
+visible = false
 offset_top = -21.3
 offset_bottom = -21.3
 scale = Vector2(1.00039, 1.00265)
+
+[node name="PauseMenu" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+
+[node name="QuitButton" type="Button" parent="UI/PauseMenu"]
+layout_mode = 2
+offset_left = -287.0
+offset_top = -21.0
+offset_right = 291.0
+offset_bottom = 25.0
+theme = ExtResource("3_feb5d")
+theme_override_font_sizes/font_size = 37
+theme_override_styles/hover = ExtResource("16_hb5m1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x5p1p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hb5m1")
+text = "EXIT TO DESKTOP
+"
+autowrap_mode = 1
 
 [node name="FoliageOutside" type="TileMapLayer" parent="."]
 material = SubResource("ShaderMaterial_80cx4")
@@ -655,8 +858,7 @@ color = Color(1, 0.27451, 0, 1)
 energy = 1.85
 texture = SubResource("GradientTexture2D_e36ub")
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_e36ub")
-
 [connection signal="pressed" from="UI/Multiplayer/MainMenu/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/Multiplayer/MainMenu/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="UI/Multiplayer/MainMenu/Exit Game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/QuitButton" to="." method="_on_exit_game_pressed"]

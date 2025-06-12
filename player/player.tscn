@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ccp7a5trw734p"]
+[gd_scene load_steps=46 format=3 uid="uid://ccp7a5trw734p"]
 
 [ext_resource type="Script" uid="uid://b0djwi2tfsxdp" path="res://player/player.gd" id="1_uo8rl"]
 [ext_resource type="Texture2D" uid="uid://bhag07cctllr1" path="res://player/player2.png" id="2_yw30f"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ckjyo07dxnq03" path="res://player/step1.mp3" id="5_g6k8r"]
 [ext_resource type="AudioStream" uid="uid://clndj133posm1" path="res://player/step2.mp3" id="6_boad6"]
 [ext_resource type="AudioStream" uid="uid://crktt4oh0li31" path="res://player/splat.mp3" id="6_g6k8r"]
+[ext_resource type="AudioStream" uid="uid://d0hqmhaw0myrm" path="res://player/jump_sound.mp3" id="7_boad6"]
 
 [sub_resource type="Curve" id="Curve_2ieo8"]
 _data = [Vector2(0, 0.49732), 0.0, 1.4, 0, 0, Vector2(0.494888, 0), 0.0, 0.0, 0, 0, Vector2(0.94683, 0.985069), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -284,12 +285,12 @@ process_material = SubResource("ParticleProcessMaterial_boad6")
 
 [node name="Step1" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("5_g6k8r")
-volume_db = -20.975
+volume_db = -25.0
 pitch_scale = 1.9
 
 [node name="Step2" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_boad6")
-volume_db = -22.723
+volume_db = -25.0
 pitch_scale = 1.9
 
 [node name="StepTimer" type="Timer" parent="Sounds"]
@@ -299,3 +300,7 @@ one_shot = true
 [node name="Splat" type="AudioStreamPlayer2D" parent="Sounds"]
 stream = ExtResource("6_g6k8r")
 volume_db = -10.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds"]
+stream = ExtResource("7_boad6")
+volume_db = -30.0

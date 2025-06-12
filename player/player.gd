@@ -206,9 +206,13 @@ func _physics_process(delta):
 		else:
 			velocity.y = JUMP_VELOCITY * 0.751
 			play_poof_effect.rpc()
+			$Sounds/JumpSound.pitch_scale = randf_range(0.8, 1.2)
+			$Sounds/JumpSound.play()
 		jump_count += 1
 		is_jumping = true
+		
 
+	
 
 	if is_jumping and Input.is_action_just_released("jump"):
 		if velocity.y < MIN_JUMP_VELOCITY:  
@@ -245,9 +249,11 @@ func _play_footstep():
 	var footstep1 = find_child("Step1")
 	var footstep2 = find_child("Step2")
 	if current_footstep == 0 and footstep1:
+		footstep1.pitch_scale = randf_range(0.8, 1.2)
 		footstep1.play()
 		current_footstep = 1
 	elif current_footstep == 1 and footstep2:
+		footstep2.pitch_scale = randf_range(0.8, 1.2)
 		footstep2.play()
 		current_footstep = 0
 @rpc("call_local", "unreliable")

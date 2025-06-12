@@ -9,6 +9,8 @@ extends Node
 @onready var p2_bar = $UI/GameUI/HealthBars/Player2Health/P2Bar
 @onready var p3_bar = $UI/GameUI/HealthBars/Player3Health/P3Bar
 @onready var p4_bar = $UI/GameUI/HealthBars/Player4Health/P4Bar
+@onready var pause_menu = $UI/PauseMenu
+
 
 const PLAYER = preload("res://player/player.tscn")
 var peer = ENetMultiplayerPeer.new()
@@ -21,10 +23,12 @@ const PLAYER_COLORS = [
 	Color.DARK_ORANGE #Braannguuul
 ]
 func _ready():
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	$MultiplayerSpawner.spawn_function = add_player
 	print("Game initialized. MultiplayerSpawner configured")
-	
+
+	pause_menu.hide()
+	get_tree().paused = false	
 
 	p1_bar.max_value = 100 
 	p1_bar.value = 100
@@ -84,7 +88,24 @@ func show_game_ui_for_all():
 			p3_bar.get_parent().show()
 		elif i == 3:
 			p4_bar.get_parent().show()
+			
+			
+func _input(event):
+	if event.is_action_pressed("ui_cancel"): 
+		if multiplayer_ui.visible:
+			return
+		toggle_pause_menu()
+		
+func toggle_pause_menu():
+		if pause_menu.visible:
+			pause_menu.hide()
+		else:
+			pause_menu.show()
+		
 
+func _on_exit_game_pressed():
+	get_tree().quit()
+	
 func _on_host_pressed():
 	var error = peer.create_server(25565)
 	if error != OK:
@@ -133,7 +154,9 @@ func _on_join_pressed():
 	multiplayer_ui.hide()
 	await multiplayer.connected_to_server
 	rpc("show_game_ui_for_all")
+	
 
+	
 func add_player(pid):
 	print("Spawning player with peer ID: %s" % pid)
 	var player = PLAYER.instantiate()
@@ -230,3 +253,6 @@ func update_health_bar_color(progress_bar: ProgressBar, current_health: int, max
 
 func get_random_spawnpoint():
 	return $Level.get_children().pick_random().global_position
+
+
+		
