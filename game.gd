@@ -13,7 +13,7 @@ extends Node
 const PLAYER = preload("res://player/player.tscn")
 var peer = ENetMultiplayerPeer.new()
 var players: Array[Player] = []
-var player_ids: Dictionary = {}  # Map peer_id to player_index
+var player_ids: Dictionary = {} 
 const PLAYER_COLORS = [
 	Color.RED,
 	Color.BLUE,
@@ -21,10 +21,11 @@ const PLAYER_COLORS = [
 	Color.DARK_ORANGE #Braannguuul
 ]
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	$MultiplayerSpawner.spawn_function = add_player
 	print("Game initialized. MultiplayerSpawner configured")
 	
-	# Setup health bars
+
 	p1_bar.max_value = 100 
 	p1_bar.value = 100
 	p2_bar.max_value = 100
