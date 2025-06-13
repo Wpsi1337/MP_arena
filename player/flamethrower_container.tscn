@@ -27,6 +27,7 @@ _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0,
 point_count = 2
 
 [node name="FlameThrowerContainer" type="Node2D"]
+z_index = 6
 
 [node name="FlameThrowerSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.0627451, 1, 1)

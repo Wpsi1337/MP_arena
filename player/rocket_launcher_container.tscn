@@ -26,6 +26,7 @@ _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0,
 point_count = 2
 
 [node name="RocketLauncherContainer" type="Node2D"]
+z_index = 6
 
 [node name="RocketLauncherSprite" type="Sprite2D" parent="."]
 scale = Vector2(2.5, 2.5)

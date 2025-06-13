@@ -99,8 +99,10 @@ func _input(event):
 func toggle_pause_menu():
 		if pause_menu.visible:
 			pause_menu.hide()
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		else:
 			pause_menu.show()
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 
 func _on_exit_game_pressed():

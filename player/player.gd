@@ -249,11 +249,11 @@ func _play_footstep():
 	var footstep1 = find_child("Step1")
 	var footstep2 = find_child("Step2")
 	if current_footstep == 0 and footstep1:
-		footstep1.pitch_scale = randf_range(0.8, 1.2)
+		footstep1.pitch_scale = randf_range(1.8, 2.1)
 		footstep1.play()
 		current_footstep = 1
 	elif current_footstep == 1 and footstep2:
-		footstep2.pitch_scale = randf_range(0.8, 1.2)
+		footstep2.pitch_scale = randf_range(1.8, 2.1)
 		footstep2.play()
 		current_footstep = 0
 @rpc("call_local", "unreliable")
