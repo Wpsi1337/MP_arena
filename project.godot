@@ -98,6 +98,7 @@ aim_controller={
 
 [physics]
 
+common/physics_ticks_per_second=30
 2d/physics_engine="Rapier2D"
 
 [rendering]

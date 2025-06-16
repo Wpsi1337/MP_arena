@@ -23,7 +23,7 @@ const PLAYER_COLORS = [
 	Color.DARK_ORANGE #Braannguuul
 ]
 func _ready():
-	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	$MultiplayerSpawner.spawn_function = add_player
 	print("Game initialized. MultiplayerSpawner configured")
 
