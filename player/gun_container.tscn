@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7i0m6jorvx7t"]
+[gd_scene load_steps=7 format=3 uid="uid://c7i0m6jorvx7t"]
 
 [ext_resource type="Texture2D" uid="uid://cr56d3m1y8u6u" path="res://player/smg.png" id="1_ex4cd"]
 [ext_resource type="AudioStream" uid="uid://bbicwywc6hdxp" path="res://player/pistol_shot.mp3" id="2_1iybv"]
@@ -24,6 +24,9 @@ shader = SubResource("Shader_1iybv")
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_1iybv"]
+polygon = PackedVector2Array(5, 1, 5, 2, 9, 2, 9, 1, 10, 1, 10, 2, 11, 2, 11, 1, 13, 1, 13, 0, 14, 0, 14, -1, 10, -1, 10, -2, 9, -2, 9, -1, 8, -1, 8, 0, 7, 0, 7, 1)
 
 [node name="GunContainer" type="Node2D"]
 z_index = 6
@@ -59,3 +62,6 @@ stream = ExtResource("2_1iybv")
 volume_db = -30.588
 pitch_scale = 2.71
 max_polyphony = 8
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_1iybv")

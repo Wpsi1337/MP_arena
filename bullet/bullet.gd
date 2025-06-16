@@ -18,12 +18,12 @@ func _physics_process(delta):
 	position += velocity * delta
 	sync_position.rpc(global_position, velocity)
 
-@rpc("any_peer", "call_local", "reliable")
+@rpc("any_peer", "reliable")
 func sync_position(pos: Vector2, vel: Vector2):
 	global_position = pos
 	velocity = vel
 
-@rpc("any_peer", "call_local", "reliable")
+@rpc("any_peer", "reliable")
 func _on_body_entered(body):
 	if !is_multiplayer_authority():
 		return

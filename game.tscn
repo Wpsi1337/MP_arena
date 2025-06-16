@@ -607,31 +607,31 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAACAAAAAAACAAgAAAACAAM
 tile_set = SubResource("TileSet_66pxm")
 
 [node name="SpawnPoint" type="Marker2D" parent="Level"]
-position = Vector2(-290, 14)
+position = Vector2(-290, 6)
 
 [node name="SpawnPoint2" type="Marker2D" parent="Level"]
-position = Vector2(226, 31)
+position = Vector2(226, 25)
 
 [node name="SpawnPoint3" type="Marker2D" parent="Level"]
-position = Vector2(-125, 28)
+position = Vector2(-125, 25)
 
 [node name="SpawnPoint4" type="Marker2D" parent="Level"]
-position = Vector2(84, 38)
+position = Vector2(84, 32)
 
 [node name="SpawnPoint5" type="Marker2D" parent="Level"]
 position = Vector2(-171, -49)
 
 [node name="SpawnPoint6" type="Marker2D" parent="Level"]
-position = Vector2(52, -51)
+position = Vector2(52, -57)
 
 [node name="SpawnPoint7" type="Marker2D" parent="Level"]
-position = Vector2(-97, -38)
+position = Vector2(-97, -40)
 
 [node name="SpawnPoint8" type="Marker2D" parent="Level"]
-position = Vector2(90, -45)
+position = Vector2(89, -47)
 
 [node name="SpawnPoint9" type="Marker2D" parent="Level"]
-position = Vector2(140, 18)
+position = Vector2(141, 15)
 
 [node name="SpawnPoint10" type="Marker2D" parent="Level"]
 position = Vector2(-40, 33)

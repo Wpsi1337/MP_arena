@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://nt4cnyqnewgi"]
+[gd_scene load_steps=7 format=3 uid="uid://nt4cnyqnewgi"]
 
 [ext_resource type="Texture2D" uid="uid://cyor7j4o0i1he" path="res://player/rocket_launcher-export.png" id="1_0s3iw"]
 [ext_resource type="AudioStream" uid="uid://gaupxfgbxru5" path="res://player/rocket_launcher.mp3" id="2_wfct8"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wfct8"]
+polygon = PackedVector2Array(-6.5, -3, -6.5, -1, -6.5, 2, -5.5, 2, -5.5, 1, 3.5, 1, 3.5, 2, 4.5, 2, 4.5, 3, 6.5, 3, 6.5, 2, 5.5, 2, 5.5, -1, 6.5, -1, 6.5, -3, 4.5, -3, 4.5, -2, -5.5, -2, -5.5, -3)
 
 [sub_resource type="Shader" id="Shader_ex4cd"]
 code = "uniform float time;
@@ -29,8 +32,11 @@ point_count = 2
 z_index = 6
 
 [node name="RocketLauncherSprite" type="Sprite2D" parent="."]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(2, 2)
 texture = ExtResource("1_0s3iw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RocketLauncherSprite"]
+occluder = SubResource("OccluderPolygon2D_wfct8")
 
 [node name="Muzzle" type="Marker2D" parent="."]
 position = Vector2(13, 0)

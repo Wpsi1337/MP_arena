@@ -440,6 +440,9 @@ func _on_respawn_timer_timeout():
 	is_invulnerable = true
 	invulnerability_timer.start()
 	shimmer.emitting = true
+	var shimmer_sound = $Sounds/ShimmerSound
+	if shimmer_sound:
+		shimmer_sound.play()
 	set_collision_layer_value(1,true)
 	set_collision_mask_value(1, true)
 	sprite.show() # fix sprite show on respawn over peer

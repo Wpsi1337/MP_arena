@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8lii8nkmlgu7"]
+[gd_scene load_steps=8 format=3 uid="uid://b8lii8nkmlgu7"]
 
 [ext_resource type="Texture2D" uid="uid://doqoe7s0yachg" path="res://player/flamethtrower.png" id="1_8wpss"]
 [ext_resource type="AudioStream" uid="uid://davwepe7swl4u" path="res://player/flamethrower_sound.mp3" id="2_yk5e5"]
@@ -25,6 +25,9 @@ shader = SubResource("Shader_ex4cd")
 _limits = [-200.0, 200.0, 0.0, 1.0]
 _data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(0.729167, -6.74158), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3baye"]
+polygon = PackedVector2Array(-2, -3, -2, 3, 0, 3, 0, 1, 4, 1, 4, 3, 14, 3, 14, 1, 18, 1, 18, 3, 22, 3, 22, 1, 20, 1, 20, -1, 22, -1, 22, -3, 18, -3, 18, -5, 6, -5, 6, -3, 2, -3, 2, -5, 0, -5, 0, -3)
 
 [node name="FlameThrowerContainer" type="Node2D"]
 z_index = 6
@@ -69,3 +72,6 @@ parameters/looping = true
 stream = ExtResource("3_3baye")
 volume_db = -22.983
 parameters/looping = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_3baye")
